@@ -1,0 +1,48 @@
+manifestVersion: 1
+name: '@atalanta/go-review-lenses'
+version: 2026.07.11.1
+description: |
+  Three adversarial Go code-review prompts ("lenses") for an independent
+  reviewer in a @swamp/software-factory run. The Go analogue of
+  @atalanta/ts-review-lenses — same three-pass structure, same
+  swamp/findings contract, same IDIOM-/CORR-/ARCH- id prefixes, written for
+  Go specifically rather than adapted from the TypeScript prose.
+
+  - Lens A (idiom) — idiomatic, with-the-grain Go: small interfaces defined
+    at the point of use, errors as values, functional options, enums via
+    iota, no transliteration from another language.
+  - Lens B (correctness vs reality) — boundary validation, the nil-interface
+    trap, goroutine/slice-aliasing correctness, determinism, resource
+    cleanup, grounded tests.
+  - Lens C (architecture) — package boundaries, the purity seam, dependency
+    direction, change confinement, no speculative generality. Cites Ben
+    Johnson's "Standard Package Layout" and Peter Bourgon's "Go best
+    practices, six years in" directly.
+
+  Run as three separate passes (IDIOM-/CORR-/ARCH- finding id prefixes keep
+  them distinct). The lens files are transport-neutral review prose; the
+  swamp + findings-JSON contract is appended at run time.
+
+  ## Use
+
+  ```
+  swamp extension pull @atalanta/go-review-lenses
+  # then invoke the bundled `go-review-lenses` skill
+  ```
+repository: 'https://github.com/Atalanta/swamp-golang-review-lenses'
+models: []
+workflows: []
+vaults: []
+drivers: []
+datastores: []
+reports: []
+skills:
+  - go-review-lenses
+additionalFiles:
+  - README.md
+  - LICENSE.txt
+labels:
+  - software-factory
+  - adversarial-review
+  - code-review
+  - golang
